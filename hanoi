@@ -1,0 +1,13 @@
+def solve(n, A, B, C, cnt):
+    if n == 1:
+        cnt[0] += 1
+        return
+    solve(n - 1, A, C, B, cnt)
+    solve(1,A,B,C,cnt)
+    solve(n - 1, B, A, C, cnt)
+def towerOfHanoi(n, From, to, aux):
+    cnt = [0]
+    solve(n, From, to, aux, cnt)
+    return cnt[0]
+n = int(input("enter numL:"))
+print(towerOfHanoi(n, 'A', 'C', 'B'))
